@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
     <header>
@@ -22,14 +19,23 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <DesktopNavLink href="/sale">Sale</DesktopNavLink>
+          <DesktopNavLink href="/new">New&nbsp;Releases</DesktopNavLink>
+          <DesktopNavLink href="/men">Men</DesktopNavLink>
+          <DesktopNavLink href="/women">Women</DesktopNavLink>
+          <DesktopNavLink href="/kids">Kids</DesktopNavLink>
+          <DesktopNavLink href="/collections">Collections</DesktopNavLink>
+          <MobileUnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={1} />
+          </MobileUnstyledButton>
+          <MobileUnstyledButton>
+            <Icon id="search" strokeWidth={1} />
+          </MobileUnstyledButton>
+          <MobileUnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+          </MobileUnstyledButton>
         </Nav>
-        <Side />
+        <DesktopSide />
       </MainHeader>
 
       <MobileMenu
@@ -52,13 +58,28 @@ const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media(${QUERIES.tablet}) {
+    margin: 0px;
+    gap: 32px;
+  }
+
+  @media(${QUERIES.mobile}) {
+    gap: 17px;
+  }
 `;
 
 const Side = styled.div`
   flex: 1;
 `;
 
-const NavLink = styled.a`
+const DesktopSide = styled(Side)`
+  @media(${QUERIES.tablet}) {
+    display: none;
+  }
+`;
+
+const DesktopNavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -67,6 +88,18 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+
+  @media(${QUERIES.tablet}) {
+    display: none;
+  }
+`;
+
+const MobileUnstyledButton = styled(UnstyledButton)`
+  display: none;
+
+  @media(${QUERIES.tablet}) {
+    display: revert;
   }
 `;
 
