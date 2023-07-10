@@ -59,11 +59,11 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     align-items: center;
   }
 
-  @media(${QUERIES.mobile}) {
+  @media ${QUERIES.mobile} {
     padding: 18px 16px;
   }
 `;
@@ -73,7 +73,7 @@ const DesktopNav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     display: none;
   }
 `;
@@ -81,13 +81,13 @@ const DesktopNav = styled.nav`
 const MobileButtons = styled.nav`
   display: none;
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     display: flex;
     gap: 32px;
     margin: 0px;
   }
 
-  @media(${QUERIES.mobile}) {
+  @media ${QUERIES.mobile}) {
     gap: 16px;
   }
 `;
@@ -98,7 +98,7 @@ const Side = styled.div`
 `;
 
 const DesktopSide = styled(Side)`
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     display: none;
   }
 `;

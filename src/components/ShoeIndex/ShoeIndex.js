@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   align-items: baseline;
   gap: 32px;
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     position: relative;
     gap: 0;
   }
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
 const LeftColumn = styled.div`
   flex-basis: 248px;
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     flex-basis: 0;
   }
 `;
@@ -75,8 +75,8 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: baseline;
 
-  @media(${QUERIES.tablet}) {
-    align-items: center;
+  @media ${QUERIES.tablet} {
+    align-items: flex-end;
   }
 `;
 
@@ -84,26 +84,26 @@ const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
 
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     margin-top: 24px;
   }
 `;
 
 const BreadcrumbsWrapper = styled.div`
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     position: absolute;
     top: 0;
   }
 `;
 
 const DesktopSpacer = styled(Spacer)`
-  @media(${QUERIES.tablet}) {
+  @media ${QUERIES.tablet} {
     display: none;
   }
 `;
 
 const ShoesFilterWrapper = styled.div`
-  @media(${QUERIES.mobile}) {
+  @media ${QUERIES.mobile} {
     display: none;
   }
 `;
