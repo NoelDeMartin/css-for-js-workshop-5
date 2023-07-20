@@ -12,12 +12,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
       <Content aria-label="Menu">
-        <CloseWrapper>
-          <UnstyledButton onClick={onDismiss}>
-            <Icon id="close"></Icon>
-            <VisuallyHidden>Dismiss menu</VisuallyHidden>
-          </UnstyledButton>
-        </CloseWrapper>
+        <CloseButton onClick={onDismiss}>
+          <Icon id="close"></Icon>
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+        </CloseButton>
+        <Filler />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -58,24 +57,28 @@ const Content = styled(DialogContent)`
   justify-content: center;
 `;
 
-const CloseWrapper = styled.div`
+const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: 26px;
-  right: 16px;
+  top: 10px;
+  right: 0;
+  padding: 16px;
 `;
 
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
+`;
+
+const Filler = styled.div`
+  flex: 1;
 `;
 
 const Footer = styled.footer`
-  position: absolute;
-  bottom: 32px;
-  left: 32px;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 14px;
 `;
 
