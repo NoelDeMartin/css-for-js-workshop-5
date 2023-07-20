@@ -87,7 +87,7 @@ const MobileButtons = styled.nav`
     margin: 0px;
   }
 
-  @media ${QUERIES.mobile}) {
+  @media ${QUERIES.mobile} {
     gap: 16px;
   }
 `;
