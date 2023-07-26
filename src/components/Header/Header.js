@@ -58,6 +58,8 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
+  white-space: nowrap;
 
   @media ${QUERIES.tablet} {
     align-items: center;
@@ -70,7 +72,7 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 7vw - 3rem, 4rem);
   margin: 0px 48px;
 
   @media ${QUERIES.tablet} {
